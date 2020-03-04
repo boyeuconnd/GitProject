@@ -2,31 +2,75 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tạo danh sách</title>
+    <title>Thực hành với HTML</title>
 </head>
 <body>
-    <ul>
-        <li><big><strong>Việt Nam</strong></big></li>
-            <ol>
-                <li>Hà Nội</li>
-                <li>Sài Gòn</li>
-                <li>Huế</li>
-                <li>Đà Nẵng</li>
-            </ol>
-        <li><Big><strong>Hoa Kỳ</strong></Big></li>
-            <ol>
-                <li>New york</li>
-                <li>Los Angeles</li>
-                <li>Chicago</li>
-                <li>Houston</li>
-            </ol>
-        <li><big><strong>Trung Quốc</strong></big></li>
-            <ol>
-                <li>Beijing</li>
-                <li>Chongqing</li>
-                <li>Shanghai</li>
-                <li>Tianjin</li>
-            </ol>
-    </ul>
+<!--    <ul>-->
+<!--        <li><big><strong>Việt Nam</strong></big></li>-->
+<!--            <ol>-->
+<!--                <li>Hà Nội</li>-->
+<!--                <li>Sài Gòn</li>-->
+<!--                <li>Huế</li>-->
+<!--                <li>Đà Nẵng</li>-->
+<!--            </ol>-->
+<!--        <li><Big><strong>Hoa Kỳ</strong></Big></li>-->
+<!--            <ol>-->
+<!--                <li>New york</li>-->
+<!--                <li>Los Angeles</li>-->
+<!--                <li>Chicago</li>-->
+<!--                <li>Houston</li>-->
+<!--            </ol>-->
+<!--        <li><big><strong>Trung Quốc</strong></big></li>-->
+<!--            <ol>-->
+<!--                <li>Beijing</li>-->
+<!--                <li>Chongqing</li>-->
+<!--                <li>Shanghai</li>-->
+<!--                <li>Tianjin</li>-->
+<!--            </ol>-->
+<!--    </ul>-->
+    <form>
+        <fieldset>
+            <legend><h4>Thông tin cá nhân</h4></legend>
+            <i>First name:</i> <br>
+            <input type="text" name="firstname" value="Tên m là gì?"><br>
+            <i>Last name:</i> <br>
+            <input type="text" name="last name" value="Họ gì?"><br>
+            <i>Ngày sinh:</i><br>
+            <input name="date" type="date"><br>
+            <i>Giới tính:</i><br>
+            <label><input name="sex" type="radio" value="Man">Nam<br></label>
+            <label><input name="sex" type="radio" value="Female">Nữ<br></label>
+            <label><input name="sex" type="radio" value="Unknown" checked>Không xác định<br></label>
+<!--            <input type="submit" value="Xác nhận">-->
+            <label for="address">
+            <i>Địa chỉ:</i><br>
+            <input name="address" id="address" value="Điền vô đây này"></label><br>
+            <i>Sở thích:</i><br>
+            <label><input name="hobby" type="checkbox">Úp vỉa</label><br>
+            <label><input name="hobby" type="checkbox">Tạt đầu xe container</label><br>
+            <label><input name="hobby" type="checkbox">Xi nhan trái rẽ phải</label><br>
+            <label><input name="hobby" type="checkbox">Đá lửa</label><br>
+            <label><input name="hobby" type="checkbox">Bốc đầu</label><br>
+            <label><input name="hobby" type="checkbox">Lạng lách đánh võng</label><br>
+            <i>Sở trường:</i><br>
+            <label><input name="forte" type="checkbox">Ăn</label><br>
+            <label><input name="forte" type="checkbox">Chơi</label><br>
+            <label><input name="forte" type="checkbox">Ngủ</label><br>
+            <label><input name="forte" type="checkbox">Bốc phét</label><br>
+            <label><input name="forte" type="checkbox">Tán gái</label><br>
+            <label>Còn gì nữa không?<textarea cols="50" rows="1" value="Nghĩ cho kĩ, khai cho thật!"></textarea></label><br><br><br>
+            <button type="button">
+                <img src="https://s3-ap-southeast-1.amazonaws.com/kipalog.com/hbsqy77ggl_Question-Rage-Face.jpg" width="100px" alt="Memeface"><br>
+                Xác nhận
+            </button>
+
+        </fieldset>
+    </form>
+<!--    <form>-->
+<!--        <label for="username">User Name</label><input name="username" id="username"/><br/>-->
+<!--        <label>Address</label><input name="address"/>-->
+<!--    </form>-->
+
+
 </body>
 </html>
