@@ -5,7 +5,7 @@
     <title>SurveyForm</title>
 </head>
 <body>
-    <form>
+    <form method="get" name="Surveyform">
         <header>
         <h1>Market Research Survey</h1>
         <Small>Please take a few moments to complete thí satisfaction survey</Small>
@@ -23,13 +23,59 @@
             <option>$25,001-$50,000</option>
             <option>$50,001-$100,000</option>
             <option>$100,000+</option>
-        </select><br>
+        </select><br><br>
         <b>Gender Identity</b><br>
         <label><input type="radio" name="sex">Male</label><br>
         <label><input type="radio" name="sex">Female</label><br>
         <label><input type="radio" name="sex">Nonbinary</label><br>
-        <label><input type="radio" name="sex">orther<br>
-        <input type="text" name="sex"size="30"></label>
+        <label><input type="radio" name="sex">Orther<br>
+        <input type="text" name="sex" size="30"></label><br><br>
+        <b>Which of following products have your purchased in the last 2 months. Please check all that apply.</b><br>
+        <label><input type="checkbox" name="product1"> Product 1</label><br>
+        <label><input type="checkbox" name="product1"> Product 2</label><br>
+        <label><input type="checkbox" name="product1"> Product 3</label><br><br>
+        <b>How often would you use our new produc?</b><br>
+        <label><input type="radio" name="oftenary">Daily</label><br>
+        <label><input type="radio" name="oftenary">Weekly</label><br>
+        <label><input type="radio" name="oftenary">Monthly</label><br><br>
+        <b>What would you pay for the new product?</b><br>
+        <strong>$</strong><input type="number" name="price" placeholder="Dollars" size="30"><strong>.</strong><input type="number" name="cents" max="9" width="5px"><br><br>
+        <b>What features would you like to see in the new product.</b><br>
+        <textarea name="features" rows="10" cols="100"></textarea><br><br>
+        Please rate your level of agreement with the following statements.<br>
+        <table border="1" width="700">
+            <tr>
+                <td></td>
+                <td>Strongly Disagree</td>
+                <td>Disagree</td>
+                <td>Agree</td>
+                <td>Strongly Agree</td>
+            </tr>
+            <tr>
+                <td><b>Our products are priced fairly.</b></td>
+                <td align="middle"><input type="radio" name="custom1" value="1" ></td>
+                <td align="middle"><input type="radio" name="custom1" value="2" </td>
+                <td align="middle"><input type="radio" name="custom1" value="3" </td>
+                <td align="middle"><input type="radio" name="custom1" value="4" </td>
+            </tr>
+            <tr>
+                <td><b>Our products are quality.</b></td>
+                <td align="middle"><input type="radio" name="custom1" value="1" ></td>
+                <td align="middle"><input type="radio" name="custom1" value="2" </td>
+                <td align="middle"><input type="radio" name="custom1" value="3" </td>
+                <td align="middle"><input type="radio" name="custom1" value="4" </td>
+            </tr>
+            <tr>
+                <td><b>You would recommend our product to a friend or coworker.</b></td>
+                <td align="middle"><input type="radio" name="custom1" value="1" ></td>
+                <td align="middle"><input type="radio" name="custom1" value="2" </td>
+                <td align="middle"><input type="radio" name="custom1" value="3" </td>
+                <td align="middle"><input type="radio" name="custom1" value="4" </td>
+            </tr>
+        </table><br>
+        <input type="submit" name="submit" value="Submit">
+
+
     </form>
 
 </body>
