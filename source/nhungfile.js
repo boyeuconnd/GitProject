@@ -18,7 +18,7 @@ document.write('s=' + s );
 let height = 89;
 let area = width * height
 document.write('Area = '+ area);*/
-a = prompt('Nhập biến a: ')
+/*a = prompt('Nhập biến a: ')
 b = prompt('Nhập biến b: ')
 let c = a - b
 if (c > 0 ){
@@ -29,4 +29,6 @@ if (c > 0 ){
     } else {
         alert('Số a nhỏ hơn số b')
     }
-}
+}*/
+let x = "1" + 2 +4
+document.write('x= ' + x)

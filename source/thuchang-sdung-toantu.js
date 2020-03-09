@@ -1,0 +1,10 @@
+let chieurong;
+let chieudai;
+chieurong = prompt('Nhập vào chiều rộng hình chữ nhật');
+chieudai = prompt('Nhập vào chiều dài hình chữ nhật');
+document.write('Chiều rộng hình cn: '+chieurong + '<br>');
+document.write('Chiều dài hình cn: ' + chieudai + '<br>');
+let wight =  Number(chieurong);
+let height =  Number(chieudai);
+let acreage = wight * height;
+document.write ("Diện tích hình cn là: " + acreage );
