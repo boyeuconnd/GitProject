@@ -34,6 +34,6 @@ function chuyendoi() {
     console.log(r)
 
     let result = a * r;
-    document.write('<p>Result: ' + result.toFixed(3) + tocr + '</p>')
+    document.write('<h4>Result: ' + result.toFixed(3) + tocr + '</h4>')
 
 };
