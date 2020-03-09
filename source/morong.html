@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Caculator</title>
+    <style>
+        input{
+            width: 70px;height: 35px;
+        }
+    </style>
+</head>
+<body>
+<div class = title >Caculator mở rộng</div>
+<table border="1">
+    <tr>
+        <td><input type="button" value="C" onclick="clr()"/> </td>
+        <td colspan="3"><input type="text" id="edu" style="width:220px;height: border-box"/></td>
+        <!-- clr() function will call clr to clear all value -->
+    </tr>
+    <tr>
+        <!-- creating buttons and assigning values-->
+        <td><input type="button" value="+" onclick="hienthi('+')"/> </td>
+        <td><input type="button" value="1" onclick="hienthi('1')"/> </td>
+        <td><input type="button" value="2" onclick="hienthi('2')"/> </td>
+        <td><input type="button" value="3" onclick="hienthi('3')"/> </td>
+    </tr>
+    <tr>
+        <td><input type="button" value="-" onclick="hienthi('-')"/> </td>
+        <td><input type="button" value="4" onclick="hienthi('4')"/> </td>
+        <td><input type="button" value="5" onclick="hienthi('5')"/> </td>
+        <td><input type="button" value="6" onclick="hienthi('6')"/> </td>
+    </tr>
+    <tr>
+        <td><input type="button" value="*" onclick="hienthi('*')"/> </td>
+        <td><input type="button" value="7" onclick="hienthi('7')"/> </td>
+        <td><input type="button" value="8" onclick="hienthi('8')"/> </td>
+        <td><input type="button" value="9" onclick="hienthi('9')"/> </td>
+    </tr>
+    <tr>
+        <td><input type="button" value="/" onclick="hienthi('/')"/> </td>
+        <td><input type="button" value="." onclick="hienthi('.')"/> </td>
+        <td><input type="button" value="0" onclick="hienthi('0')"/> </td>
+        <!-- Evaluating function call eval()-->
+        <td><input type="button" value="=" onclick="giai()"/> </td>
+    </tr>
+</table>
+<script src="morong.js"></script>
+</body>
+</html>
