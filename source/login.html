@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+    <script>
+        let username = prompt("Please fill your account:","");
+        if (username == "admin"){
+            alert("Wellcome");
+            let password = prompt("Password please:","");
+            if (password =="themaster"){
+                alert("Login success!");
+            }else if (password == null){
+                alert("Canceled");
+            }else{
+                alert("Wrong password! please try again");
+            }
+
+        }else if (username == null){
+            alert("Canceled");
+
+        }else {
+            alert("Wrong usename");
+        }
+
+
+    </script>
+</body>
+</html>
