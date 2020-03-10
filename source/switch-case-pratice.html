@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập vs cấu trúc Switch-case</title>
+</head>
+<body>
+<!--   <script>-->
+<!--        //Bài tập theo hướng dẫn-->
+<!--        let browser = prompt("Please confirm your browser:",'');-->
+<!--        switch (browser) {-->
+<!--            case ('Edge'):-->
+<!--                alert("You have got the Edge!");-->
+<!--                break;-->
+<!--            case('Chrome'):-->
+<!--            case('Firefox'):-->
+<!--            case('Safari'):-->
+<!--            case('Opera'):-->
+<!--                alert("We've suport this browser also:");-->
+<!--                break;-->
+<!--            default:-->
+<!--                alert("We hope this/that page look well.");-->
+
+<!--        }-->
+<!--    </script>-->
+    <script>
+        let value = parseInt(prompt('Nhập giá trị số a:',0));
+        switch ((value > 0 ? 1: (value < 0) ? -1:0)) {
+            case(1):
+                alert(1);
+                break;
+            case(-1):
+                alert(-1);
+                break;
+            default:
+                alert(0);
+        }
+    </script>
+</body>
+</html>
