@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập về toán tử ba ngôi</title>
+</head>
+<body>
+    <h2>Please choose your <position class=""></position></h2>
+    <select name="Posision" id="position">
+        <option value="employee">Employee</option>
+        <option value="director">Director</option>
+        <option value="">Other</option>
+    </select><br>
+    <button onclick= loichao()>Submit</button>
+    <script>
+        //Bài tập 1
+        // let num1 = Number(prompt("Nhập giá trị số thứ nhất: ",0));
+        // let num2 = Number(prompt("Nhập giá trị số thứ hai: ",0));
+        // result = (num1 + num2 > 4) ? "Over" : "Below";
+        // console.log(result);
+        // document.write(result);
+        //Bài tập 2:
+        function loichao(){
+        let login = document.getElementById('position').value;
+        console.log(login);
+
+        let result = (login == 'employee') ?
+            "Hello":
+            (login == 'director')?
+                'Greetings!':
+                (login == '')?
+                    'No login':
+                    '';
+        console.log(result);
+        alert(result);
+        }
+
+
+    </script>
+
+</body>
+</html>
