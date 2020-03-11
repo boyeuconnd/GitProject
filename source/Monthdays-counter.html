@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính số ngày trong tháng</title>
+</head>
+<body>
+  <form method="get" name="form" >
+      <input type="number" style="text-align: left" id="num" value=''>
+      <button name="button" onclick ="tinhtoan()" >Tính số ngày</button>
+  </form>
+    <script>
+        function tinhtoan() {
+            let num = Number(document.getElementById("num").value);
+            let days;
+            console.log(num);
+            console.log(days);
+            switch (num) {
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                    days = 31;
+                    break;
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    days = 30;
+                    break;
+                case 2:
+                    let year = Number(prompt("Mời nhập năm hiện tại"), 0);
+                    if (year % 4 == 0) { //Kiểm tra tính chia hết cho 4
+                        if (year % 100 == 0) {//kiểm tra tính chia hết cho 100
+                            if (year % 400 == 0) {// kiểm tra tính chia hết cho 400
+                                days = 29; //ra kqua đúng vs cả 3 điều kiện
+                            }
+                        } else { // ra kqua chia hết cho 4 nhưng k chia hết cho 100 và 400
+                            days = 28;
+                        }
+                    } else {
+                        days = 28
+                    }
+                    ;
+                    break;
+                default:
+                    alert("tháng nhập vào không hợp lệ");
+
+            }
+            console.log(days);
+            document.write('Tháng ' + num + ' có ' + days + ' Ngày');
+        }
+
+
+    </script>
+</body>
+</html>
