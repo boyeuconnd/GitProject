@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xếp loại học sinh</title>
+</head>
+<body>
+    <script>
+        let diemktra = Number(prompt('Nhập điểm bài ktra'));
+        let diemgiuaki = Number(prompt('Nhập điểm thi giữa kì'));
+        let diemcuoiki = Number(prompt('Nhập điểm thi cuối kì'));
+        let diemtrungbinh = (diemktra + diemgiuaki * 2 + diemcuoiki * 3)/6;
+        console.log(diemtrungbinh)
+        if (diemtrungbinh >8) {
+            alert('Học lực giỏi');
+        }else if (diemtrungbinh>6){
+            alert('Học lực khá');
+        }else if (diemtrungbinh>4){
+            alert('Học lực trung bình');
+        }else if (diemtrungbinh>0){
+            alert('Học lực kém');
+        }else {alert('Nhập điểm sai')
+        }
+    </script>
+
+</body>
+</html>
