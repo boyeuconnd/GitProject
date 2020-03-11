@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form>
+        <label>
+            <input type="checkbox" name="good" id="g" onclick="swGood()"> Good
+        </label><br><br>
+        <label>
+            <input type="checkbox" name="cheap" id="c" onclick="swCheap()" > Cheap
+        </label> <br><br>
+        <label>
+            <input type="checkbox" name="fast" id="f" onclick="swFast()" > Fast
+        </label><br><br>
+<!--        <button onclick= 'khaibao()' type="button">submit</button>-->
+
+    </form>
+    <script>
+        function swGood() {
+            let x = document.getElementById('g').checked;
+            let y = document.getElementById('c').checked;
+            let z = document.getElementById('f').checked;
+            console.log(x,y,z);
+            if(y && z){
+                if(Math.random()<0.5){
+                    document.getElementById(y).checked = false;
+                }else{
+                    document.getElementById(z).checked = false;
+                }
+
+            }
+
+        }
+        function swCheap() {
+            let x = document.getElementById('g').checked;
+            let y = document.getElementById('c').checked;
+            let z = document.getElementById('f').checked;
+            console.log(x,y,z);
+            if(x && z){
+                if(Math.random()<0.5){
+                    document.getElementById(x).checked = false;
+                }else{
+                    document.getElementById(z).checked = false;
+                }
+
+            }
+
+        }
+        function swFast() {
+            let x = document.getElementById('g').checked;
+            let y = document.getElementById('c').checked;
+            let z = document.getElementById('f').checked;
+            console.log(x,y,z);
+            if(x && y){
+                if(Math.random()<0.5){
+                    document.getElementById(x).checked = false;
+                }else{
+                    document.getElementById(y).checked = false;
+                }
+
+            }
+
+        }
+
+    </script>
+</body>
+</html>
