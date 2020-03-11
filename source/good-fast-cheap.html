@@ -20,45 +20,45 @@
     </form>
     <script>
         function swGood() {
-            let x = document.getElementById('g').checked;
-            let y = document.getElementById('c').checked;
-            let z = document.getElementById('f').checked;
-            console.log(x,y,z);
-            if(y && z){
+            let x = document.getElementById('g');
+            let y = document.getElementById('c');
+            let z = document.getElementById('f');
+            console.log(x.checked,y.checked,z.checked);
+            if(y.checked && z.checked){
                 if(Math.random()<0.5){
-                    document.getElementById(y).checked = false;
+                    y.checked = false;
                 }else{
-                    document.getElementById(z).checked = false;
+                    z.checked = false;
                 }
 
             }
 
         }
         function swCheap() {
-            let x = document.getElementById('g').checked;
-            let y = document.getElementById('c').checked;
-            let z = document.getElementById('f').checked;
-            console.log(x,y,z);
-            if(x && z){
+            let x = document.getElementById('g');
+            let y = document.getElementById('c');
+            let z = document.getElementById('f');
+            console.log(x.checked,y.checked,z.checked);
+            if(x.checked && z.checked){
                 if(Math.random()<0.5){
-                    document.getElementById(x).checked = false;
+                    x.checked = false;
                 }else{
-                    document.getElementById(z).checked = false;
+                    y.checked = false;
                 }
 
             }
 
         }
         function swFast() {
-            let x = document.getElementById('g').checked;
-            let y = document.getElementById('c').checked;
-            let z = document.getElementById('f').checked;
-            console.log(x,y,z);
-            if(x && y){
+            let x = document.getElementById('g');
+            let y = document.getElementById('c');
+            let z = document.getElementById('f');
+            console.log(x.checked,y.checked,z.checked);
+            if(x.checked && y.checked){
                 if(Math.random()<0.5){
-                    document.getElementById(x).checked = false;
+                    x.checked = false;
                 }else{
-                    document.getElementById(y).checked = false;
+                    y.checked = false;
                 }
 
             }
