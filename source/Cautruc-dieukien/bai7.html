@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính tiền điện của gia đình</title>
+</head>
+<body>
+    <script>
+        let lastnum = Number(prompt("Nhập chỉ số điện tháng trước: "));
+        let nownum = Number(prompt("Nhập chỉ số điện tháng này: "));
+        let usednum = Number(nownum - lastnum);
+        let result;
+        if(usednum >= 0){
+            if(usednum >= 50){
+                if(usednum >=100){
+                    if (usednum >=200){
+                        if(usednum >=300){
+                            result = 625600 + (usednum - 300)*2834;
+
+                        }else{
+                            result = 372000 + (usednum - 200)*2536;
+                        }
+
+                    }else {
+                        result = 170600 + (usednum - 100)*2014;
+                    }
+
+                }else {
+                    result = 83900 + (usednum - 50)*1734;
+                }
+
+            }else{ result = usednum * 1678;
+
+            }
+
+        }else {
+            document.write("Bạn nhập sai đầu vào, hãy kiểm tra lại")
+        }
+        console.log(result);
+        document.write("Số tiền phải nộp là: " + result + " VND");
+    </script>
+</body>
+</html>
