@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra cạnh tam giác</title>
+</head>
+<body>
+    <script>
+        let canha= Number(prompt("Mời nhập giá trị cạnh a:"));
+        let canhb= Number(prompt("Mời nhập giá trị cạnh b:"));
+        let canhc= Number(prompt("Mời nhập giá trị cạnh c:"));
+        let conditon1;
+        let conditon2;
+        if (Boolean(canha>0)&&Boolean(canhb>0)&&Boolean(canhc>0)){ conditon1=true;
+        }else {
+            conditon1=false;
+            alert("giá trị nhập không hợp lệ");
+
+        }
+        if( Boolean(canha+canhb>canhc) && Boolean(canha+canhc>canhb) && Boolean(canhb+canhc>canha)){
+            conditon2=true;
+        }else {
+            conditon2=false;
+        }
+        if(conditon1&&conditon2){
+            document.write("Bạn nhập vào đúng là 3 cạnh tam giác");
+        }else {
+            document.write("Bạn nhập vào không là 3 cạnh tam giác");
+        }
+        console.log(conditon1);
+        console.log(conditon2);
+    </script>
+</body>
+</html>

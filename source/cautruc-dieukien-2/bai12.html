@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính lãi ngân hàng</title>
+</head>
+<body>
+    <script>
+        let money = Number(prompt("Mời nhập số tiền bạn vay (vnd)"));
+        let month = parseInt(prompt("Mời nhập kì hạn bạn vay"));
+        let rate = Number(prompt("Mời nhập lãi suất hàng tháng (%)"));
+        let calrate = rate/100;
+        let sum;
+        if(Boolean(money>=0) && Boolean(month>0) && Boolean(rate>=0)){
+            for (i=1; i <=month; i++){
+                sum = money + (money*calrate);
+                money = sum;
+                console.log(sum);
+                console.log(money);
+                document.write("Tổng số tiền cả vốn lẫn lãi bạn phải thanh toán: "+ money.toFixed(0) + ' VND');
+            }
+        }else {
+            alert('Giá trị bạn nhập không hợp lệ');
+        }
+
+
+
+    </script>
+</body>
+</html>

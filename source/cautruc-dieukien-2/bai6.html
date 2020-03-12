@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phương trình bậc 1</title>
+</head>
+<body>
+    <script>
+        let biena = Number(prompt("Mời nhập giá trị a của biểu thức ax=b"));
+        console.log(biena);
+        let bienb = Number(prompt("Mời nhập giá trị b của biểu thức ax=b"));
+        console.log(bienb);
+        if (biena === 0){
+            document.write("Phương trình có vô nghiệm");
+        } else {
+            if (bienb === 0){
+                document.write("Phương trình có vô số nghiệm");
+            }else {
+                let bienx = Number(bienb / biena);
+                console.log(bienx)
+                document.write("Giá trị x = "+ bienx);
+            }
+
+        }
+    </script>
+</body>
+</html>

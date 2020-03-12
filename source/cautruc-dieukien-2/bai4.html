@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính diện tích hình chữ nhật</title>
+</head>
+<body>
+    <script>
+        let chieudai = Number(prompt("Mời nhập giá trị cạnh dài (m)",0));
+        let chieurong = Number(prompt("Mời nhập giá trị cạnh rộng (m)",0));
+        if(chieurong>0 && chieudai>0){
+            let acreage = chieudai*chieurong;
+            console.log(acreage);
+            document.write("Giá trị diện tích: " + acreage + 'm<sup>2</sup>');
+        }else {
+            document.write('Giá trị nhập vào không hợp lệ');
+        }
+
+    </script>
+</body>
+</html>

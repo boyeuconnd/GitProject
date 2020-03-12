@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính diện tích tam giác khi biết 2 cạnh kề</title>
+</head>
+<body>
+    <script>
+        let a = Number(prompt("Mời nhập chiều dài cạnh a (m)"));
+        let b = Number(prompt("Mời nhập chiều dài cạnh b (m)"));
+        if(a>0 && b>0){
+            let acreage = a*b/2;
+            document.write('Diện tích hình tam giác là: ' + acreage +"m<sup>2</sup>")
+        }else {
+            document.write("Chiều dài không hợp lệ");
+        }
+
+    </script>
+</body>
+</html>
