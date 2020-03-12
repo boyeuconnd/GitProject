@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Puzzle</title>
+</head>
+<body>
+    <h1 id="result"></h1><br>
+    <img id="part1" src="img/img_1_part_1.jpg" alt="" onclick="imgchange(1)"/><br>
+    <img id="part2" src="img/img_1_part_2.jpg" alt="" onclick="imgchange(2)"/><br>
+    <img id="part3" src="img/img_1_part_3.jpg" alt="" onclick="imgchange(3)"/><br>
+    <img id="part4" src="img/img_1_part_4.jpg" alt="" onclick="imgchange(4)"/><br>
+    <img id="part5" src="img/img_1_part_5.jpg" alt="" onclick="imgchange(5)"/><br>
+
+    <script>
+        let imgnum = 1;
+        function imgchange(x) {  //Tạo hàm thay đổi ảnh theo click
+            let image = document.getElementById("part"+x)
+            if (imgnum === 1) {
+                imgnum = 2;
+            }else {
+                imgnum = 1;
+            }
+            image.src = "img/img_" + imgnum + "_part_"+x+".jpg";
+            check(1);
+            check(2);
+
+        }
+        function check(y) {
+            let part1 = document.getElementById("part1");
+            let part2 = document.getElementById("part2");
+            let part3 = document.getElementById("part3");
+            let part4 = document.getElementById("part4");
+            let part5 = document.getElementById("part5");
+            console.log(part1.src.endsWith("img_1_part_1.jpg"));
+            if (part1.src.endsWith("img_"+y+"_part_1.jpg")
+                && part2.src.endsWith("img_"+y+"_part_2.jpg")
+                && part3.src.endsWith("img_"+y+"_part_3.jpg")
+                && part4.src.endsWith("img_"+y+"_part_4.jpg")
+                && part5.src.endsWith("img_"+y+"_part_5.jpg")  ){
+                document.getElementById('result').innerHTML = "Bạn đã xếp đúng";
+            }
+
+        }
+    </script>
+</body>
+</html>
