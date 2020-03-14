@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hiển thị số nguyên tố</title>
+</head>
+<body>
+    <script>
+        let num = parseInt(prompt("Mời nhập số giá trị bạn muốn in ra"));
+        let count = 0 ;
+        let N = 2;
+        let i = 2;
+        let flag;
+        do{
+
+            for(i=2;i<N;i++){
+                flag=true;
+                if(N%i == 0){
+                    flag=false;
+                    break;
+                }
+
+            }
+            if (flag===true){
+                document.write(N + "<br>");
+                count++;
+            }
+            N++;
+
+        }while (count<num);
+
+
+
+
+
+    </script>
+
+</body>
+</html>

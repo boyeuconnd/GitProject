@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game đoán số</title>
+</head>
+<body>
+<h1>Trò chơi đoán số</h1>
+    <button id="botton" onclick="gamestart()">Start</button>
+    <script>
+        function gamestart() {
+        let min = parseInt(prompt("Mời nhập giá trị Min:"));
+        let max = parseInt(prompt("Mời nhập giá trị Max:"));
+        function randomNum(min, max){ //tao function chon so random
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        let basenum = randomNum(min , max);
+        console.log(basenum);
+        let guessnum = parseInt(prompt("Mời nhập giá trị dự đoán"));
+        let checkResult;
+        for(i=1;i<=3;i++) {
+            if (guessnum > basenum) {
+                checkResult = false;
+                alert('Số bạn nhập Lớn hơn số được lựa chọn')
+            } else if (guessnum == basenum) {
+                checkResult = true;
+                alert('Chính xác')
+            } else {
+                checkResult = false;
+                alert('Số bạn chọn nhỏ hơn số được lựa chọn')
+            }
+            if (checkResult || Boolean(i==3)) {
+                alert("trò chơi kết thúc");
+                break;
+            } else {
+                guessnum = parseInt(prompt("Mời nhập giá trị dự đoán"));
+            }
+        }
+        }
+    </script>
+</body>
+</html>
