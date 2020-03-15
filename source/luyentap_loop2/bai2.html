@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính giai thừa 1 số nguyên dương</title>
+</head>
+<body>
+    <script>
+        let num = parseInt(prompt("Mời nhập giá trị cần tính toán"));
+        let factorial = 1;
+        if (num>0){
+            for(i=1;i<=num;i++){
+                factorial = factorial*i;
+            }
+        }else {
+            alert("Số bạn nhập vào không hợp lệ");
+        }
+        console.log(factorial);
+        document.write(factorial);
+    </script>
+</body>
+</html>

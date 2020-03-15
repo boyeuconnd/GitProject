@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In hình chữ nhật</title>
+</head>
+<body>
+    <script>
+        let height = parseInt(prompt("Mời nhập vào chiều cao"));
+        let width = parseInt(prompt("Mời nhập vào chiều dài"));
+        for (i=1;i<=height;i++){
+            for (j=1;j<=width;j++){
+                if(i==1 || i==height){
+                    document.write("*");
+                }else {
+                    for(k=1;k<2;k++){
+                        document.write("*");
+                    }
+
+                    for(l=1;l <= width-2;l++){
+                        document.write("&nbsp;&nbsp;");
+                    }
+                    for(k=1;k<2;k++){
+                        document.write("*");
+                    }
+                    break;
+                }
+
+            }
+            document.write("<br>");
+        }
+    </script>
+</body>
+</html>
