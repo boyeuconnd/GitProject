@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo và thao tác với mảng</title>
+    <style>
+        body {padding-top: 50px }
+    </style>
+</head>
+<body>
+    <h2>Sample of create and display array</h2>
+    <input type="text" id="txtInput"/>
+    <input type="button" id="btnAdd" value="Add" onclick="add_elmt_to_array()">
+    <input type="button" id="btnDisplay" value="Display" onclick="display_array()">
+    <div id="result"></div>
+    <script>
+        let x =0;
+        let array1 = Array();
+        function add_elmt_to_array() {
+            array1[x] = document.getElementById("txtInput").value;
+            alert("Element: " + array1[x] + " Add at index " + x );
+            x++;
+            document.getElementById("txtInput").value = "";
+        }
+        function display_array() {
+            let hienthi = "<hr>";
+            for(let i=0;i<array1.length;i++){
+                hienthi += "Element " + i + " = " + array1[i] + "<br>";
+            }
+            document.getElementById("result").innerHTML = hienthi;
+        }
+    </script>
+</body>
+</html>
