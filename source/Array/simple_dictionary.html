@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dictionary simple</title>
+</head>
+<body>
+    <script>
+        var vie = ["mot","hai","ba","bon","nam","sau","bay","tam","chin","muoi"];
+        var eng = ["one","two","three","four","five","six","seven","eight","nine","ten"];
+        let inputtx = prompt("Mời nhập 1 số đếm bằng tiếng việt k dấu");
+        let index =-1;
+        for(let i=0;i<vie.length;i++){
+            if(inputtx == vie[i]){
+                index = i;
+                break;
+            }
+        }
+        if (index == -1){
+            alert('Giá trị bạn nhập chưa hỗ trợ, vui lòng quay lại sau');
+        }else {
+            document.write(eng[index]);
+        }
+    </script>
+
+</body>
+</html>
