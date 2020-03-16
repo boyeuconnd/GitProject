@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+    <script>
+        let numx = window.prompt("Mời nhập vào số");
+        let inputArray = numx.toString();
+        let indexArray = [inputArray[0]];
+        console.log(inputArray);
+        console.log(inputArray.length);
+        for(let i = 1; i<inputArray.length; i++){
+            if((inputArray[i-1]%2 ===0)&&(inputArray[i]%2 ===0)){
+                indexArray.push('-',inputArray[i]);
+            }else {
+                indexArray.push(inputArray[i]);
+            }
+        }
+        console.log(indexArray.join(''));
+        document.write(indexArray.join(''));
+    </script>
+</body>
+</html>

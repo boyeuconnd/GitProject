@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Case of single characters</title>
+</head>
+<body>
+    <script>
+        let inputtext = prompt("Mời nhập chuỗi kí tự:");
+        let UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        let LOWER = 'abcdefghijklmnopqrstuvwxyz';
+        let outertext = [];
+
+        for(var i=0; i<inputtext.length; i++)
+        {
+            if(UPPER.indexOf(inputtext[i]) !== -1)
+            {
+                outertext.push(inputtext[i].toLowerCase());
+            }
+            else if(LOWER.indexOf(inputtext[i]) !== -1)
+            {
+                outertext.push(inputtext[i].toUpperCase());
+            }
+            else
+            {
+                outertext.push(inputtext[i]);
+            }
+        }
+        console.log(outertext.join(''));
+        document.write(outertext.join(''));
+
+    </script>
+</body>
+</html>
