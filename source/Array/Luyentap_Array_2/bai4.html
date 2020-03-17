@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let inputstring = prompt("Mời nhập vào chuỗi");
+        var inputArray = inputstring.toString();
+        let count = 0;
+        for(i=0;i<inputArray.length;i++){
+            console.log(inputArray[i]);
+            if(inputArray[i] === " "){
+                count++;
+            }else if (inputArray[i] === "-") {
+                count++;
+            }else if (inputArray[i] === "_") {
+                count++;
+            }
+            console.log(count);
+        }
+        document.write("Chuỗi bạn nhập có "+ (count+1) +" từ.");
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let inputtext = prompt("Mời nhập chuỗi 1");
+        let inputString=inputtext.split("")
+        console.log(inputString.length);
+        for(i=0;i<inputString.length;i++){
+            if(inputString[i] === "-"){
+                inputString[i] = "_";
+
+            }
+        }
+        document.write(inputString.join(""));
+    </script>
+</body>
+</html>

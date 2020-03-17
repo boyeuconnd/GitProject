@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let numx = prompt("Mời nhập vào chuỗi");
+        let inputArray = numx.toString();
+        let first = 0;
+        let last = inputArray.length -1;
+        console.log(inputArray[first]);
+        console.log(inputArray[last]);
+        let outputArray = [];
+        outputArray.length = inputArray.length;
+        while (first<=last){
+            let b = inputArray[first];
+            outputArray[first]=inputArray[last];
+            outputArray[last] = b;
+            first++;
+            last--;
+            console.log(outputArray);
+        }
+        document.write(outputArray.join(""));
+
+    </script>
+
+</body>
+</html>
