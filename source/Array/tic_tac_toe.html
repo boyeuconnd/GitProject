@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tic_tac_toe</title>
+</head>
+<body>
+    <h3>Caro Game Simple</h3>
+    <div><p id="carogame" /></div>
+    <input type="button" value="Player1" onclick="player1()">
+    <input type="button" value="Player2" onclick="player2()"><br>
+    <div><p id = "result"/></div>
+    <script>
+        let b = document.getElementById("carogame");
+
+        let board = [];
+        let data = "";
+        for (let i = 0; i < 5; i++) { //Vòng lặp for khai báo mảng chứa caro board
+            board[i] = new Array("&nbsp;"+'.',"&nbsp;"+'.',"&nbsp;"+'.',"&nbsp;"+'.',"&nbsp;"+'.');
+        }
+
+        for (let i = 0; i < 5; i++) { //Vòng lặp for hiển thị mảng chứa cara board
+            data += "<br/>";
+            for (let j = 0; j < 5; j++) {
+                data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+            }
+        }
+        b.innerHTML=data;
+        function player1() {
+            let X = parseInt(prompt("Giá trị X"));
+            let Y = parseInt(prompt("Giá trị Y"));
+            data="";
+            board[X][Y] = "x";
+                for (let i = 0; i < 5; i++) {
+                    data += "<br/>";
+                    for (let j = 0; j < 5; j++) {
+                        data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                    }
+                }
+                b.innerHTML="<hr>"+data;
+                console.log(board[0][0]);
+                console.log(board[0][1]);
+                console.log(board[0][2]);
+            checkwiner(x);
+
+        }
+        // function player2() {
+        //     let X = parseInt(prompt("Giá trị X"));
+        //     let Y = parseInt(prompt("Giá trị Y"));
+        //     data="";
+        //     board[X][Y] = "o";
+        //     for (let i = 0; i < 5; i++) {
+        //         data += "<br/>";
+        //         for (let j = 0; j < 5; j++) {
+        //             data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+        //         }
+        //     }
+        //     b.innerHTML="<hr>"+data;
+        // }
+        function checkwiner(plyer) { //Hàm check
+            for (i=0;i<7;i++){
+                for(j=0;j<7;j++){
+                    if((board[i][j] == plyer)&&(board[i][j+1] == plyer)&&(board[i][j+2]==plyer)) {
+                        document.getElementById("result").innerHTML = "Player 1 won";
+                        break;
+                    }else if ((board[i][j] == "x")&&(board[i+1][j] == "x")&&(board[i+2][j]=="x")){
+                        document.getElementById("result").innerHTML = "Player 1 won";
+                        break;
+                    }else if ((board[i][j] == "x")&&(board[i+1][j+1] == "x")&&(board[i+2][j+2]=="x")) {
+                        document.getElementById("result").innerHTML = "Player 1 won";
+                        break;
+                    }
+                    else if ((board[i][j] == "x")&&(board[i-1][j+1] == "x")&&(board[i-2][j+2]=="x")) {
+                        document.getElementById("result").innerHTML = "Player 1 won";
+                        break;
+                    }
+                }
+            }
+
+        }
+    </script>
+
+
+</body>
+</html>

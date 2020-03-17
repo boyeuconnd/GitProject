@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        var inputArray = [];
+        var outputArray = [];
+        function deleteElement(elt) { //Function xóa giá trị chỉ định trong Mảng
+            for(j=elt+1;j<inputArray.length;j++){
+                inputArray[j-1]=inputArray[j];
+            }
+            inputArray.pop();
+
+        }
+        for (i = 0; i < 10; i++) { //Khai báo mảng
+            inputArray[i] = parseInt(prompt("Mời nhập phần tử thứ " + i));
+        }
+        while (inputArray.length>0) {
+
+            let maxElement = inputArray[0];
+            let index;
+            for (let i = 0; i < inputArray.length; i++) { //Tim giá trị max trong mảng
+                if (inputArray[i] >= maxElement) {
+                    maxElement = inputArray[i];
+                    index = i;
+                }
+            }
+            deleteElement(index);
+
+            outputArray.push(maxElement);
+
+            console.log(inputArray);
+            console.log(outputArray);
+        }
+    </script>
+</body>
+</html>

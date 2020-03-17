@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        var Mang = []
+        for(i=0;i<10;i++){
+            Mang[i]= Number(prompt("Mời nhập phần tử thứ " + i ));
+        }
+        let bienV = parseInt(prompt('Mời nhập giá trị muốn tìm kiếm'));
+        let check = -1;
+        for(i=0;i<10;i++) {
+            if (bienV === Mang[i]) {
+                check = i;
+                break
+            }
+        }
+        if(check == -1){
+            alert("Ko có giá trị cần tìm trong mảng")
+        }else {
+            deleteElement(i);
+        }
+
+        console.log(Mang.join());
+        function deleteElement(elt) {
+            for(j=elt+1;j<Mang.length;j++){
+                Mang[j-1]=Mang[j];
+            }
+            Mang[Mang.length-1]="";
+
+        }
+    </script>
+</body>
+</html>

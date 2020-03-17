@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Khởi tạo mảng, tính toán có bnhiu phần tử>10</title>
+</head>
+<body>
+    <script>
+        var Mang = []
+        for(i=0;i<10;i++){
+            Mang[i]= Number(prompt("Mời nhập phần tử thứ " + i ));
+        }
+        let count = 0;
+        for(i=0;i<10;i++){
+            if(Mang[i]>=10){
+                count++;
+            }
+        }
+        document.write("Có " + count + " phần tử >=10");
+    </script>
+</body>
+</html>

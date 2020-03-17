@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        var arrayA = [];
+        var arrayB = [];
+        for(i=0;i<10;i++){
+            arrayA[i]= parseInt(prompt("Mời nhập giá trị phần tử thứ "+i+" của Mảng A"));
+        }
+
+        for(i=0;i<10;i++){
+            arrayB[i]= parseInt(prompt("Mời nhập giá trị phần tử thứ "+i+" của Mảng B"));
+        }
+        var arrayC = [];
+        for(i=0;i<10;i++){
+            arrayC.push(arrayA[i]);
+        }
+        for(i=0;i<10;i++){
+            arrayC.push(arrayB[i]);
+        }
+        console.log(arrayC);
+        document.write(arrayC);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm giá trị V trong mảng</title>
+</head>
+<body>
+    <script>
+        var Mang = []
+        for(i=0;i<10;i++){
+            Mang[i]= Number(prompt("Mời nhập phần tử thứ " + i ));
+        }
+        let bienV = parseInt(prompt('Mời nhập giá trị muốn tìm kiếm'));
+        let check = -1;
+        for(i=0;i<10;i++){
+            if(bienV === Mang[i]){
+                check = i ;
+                break
+            }
+
+        }
+        if(check == -1){
+            document.write("V is not in this array");
+        }else {
+            document.write("V is in this array");
+        }
+    </script>
+</body>
+</html>

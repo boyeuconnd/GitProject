@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm giá trị lớn nhất trong mảng</title>
+</head>
+<body>
+    <script>
+        var Mang = []
+        for(i=0;i<10;i++){
+            Mang[i]= Number(prompt("Mời nhập phần tử thứ " + i ));
+        }
+        let maximum = 0;
+        let indexMax;
+        for(i=0;i<10;i++){
+            if(Mang[i]>=maximum){
+                maximum = Mang[i];
+                indexMax = i;
+            }
+        }
+        document.write("Phần tử lớn nhất là " + maximum + " ở vị trí " + indexMax);
+    </script>
+</body>
+</html>
