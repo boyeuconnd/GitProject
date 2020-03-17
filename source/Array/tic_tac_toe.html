@@ -41,37 +41,54 @@
                 console.log(board[0][0]);
                 console.log(board[0][1]);
                 console.log(board[0][2]);
-            checkwiner(x);
+            checkwiner('x');
 
         }
-        // function player2() {
-        //     let X = parseInt(prompt("Giá trị X"));
-        //     let Y = parseInt(prompt("Giá trị Y"));
-        //     data="";
-        //     board[X][Y] = "o";
-        //     for (let i = 0; i < 5; i++) {
-        //         data += "<br/>";
-        //         for (let j = 0; j < 5; j++) {
-        //             data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
-        //         }
-        //     }
-        //     b.innerHTML="<hr>"+data;
-        // }
-        function checkwiner(plyer) { //Hàm check
+        function player2() {
+            let X = parseInt(prompt("Giá trị X"));
+            let Y = parseInt(prompt("Giá trị Y"));
+            data="";
+            board[X][Y] = "o";
+                for (let i = 0; i < 5; i++) {
+                    data += "<br/>";
+                    for (let j = 0; j < 5; j++) {
+                        data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                    }
+                }
+                b.innerHTML="<hr>"+data;
+            checkwiner("o");
+        }
+        function checkwiner(plyer) { //Hàm check điều kiện thắng của người chơi,
             for (i=0;i<7;i++){
                 for(j=0;j<7;j++){
                     if((board[i][j] == plyer)&&(board[i][j+1] == plyer)&&(board[i][j+2]==plyer)) {
-                        document.getElementById("result").innerHTML = "Player 1 won";
+                        if(plyer == "x"){
+                            document.getElementById("result").innerHTML = "Player 1 won";
+                        }else {
+                            document.getElementById("result").innerHTML = "Player 2 won";
+                        }
                         break;
-                    }else if ((board[i][j] == "x")&&(board[i+1][j] == "x")&&(board[i+2][j]=="x")){
-                        document.getElementById("result").innerHTML = "Player 1 won";
+                    }else if ((board[i][j] == plyer)&&(board[i+1][j] == plyer)&&(board[i+2][j]==plyer)){
+                        if(plyer == "x"){
+                            document.getElementById("result").innerHTML = "Player 1 won";
+                        }else {
+                            document.getElementById("result").innerHTML = "Player 2 won";
+                        }
                         break;
-                    }else if ((board[i][j] == "x")&&(board[i+1][j+1] == "x")&&(board[i+2][j+2]=="x")) {
-                        document.getElementById("result").innerHTML = "Player 1 won";
+                    }else if ((board[i][j] == plyer)&&(board[i+1][j+1] == plyer)&&(board[i+2][j+2]==plyer)) {
+                        if(plyer == "x"){
+                            document.getElementById("result").innerHTML = "Player 1 won";
+                        }else {
+                            document.getElementById("result").innerHTML = "Player 2 won";
+                        }
                         break;
                     }
-                    else if ((board[i][j] == "x")&&(board[i-1][j+1] == "x")&&(board[i-2][j+2]=="x")) {
-                        document.getElementById("result").innerHTML = "Player 1 won";
+                    else if ((board[i][j] == plyer)&&(board[i-1][j+1] == plyer)&&(board[i-2][j+2]==plyer)) {
+                        if(plyer == "x"){
+                            document.getElementById("result").innerHTML = "Player 1 won";
+                        }else {
+                            document.getElementById("result").innerHTML = "Player 2 won";
+                        }
                         break;
                     }
                 }
