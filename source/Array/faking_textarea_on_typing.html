@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Faking textarea on Typing</title>
+</head>
+<body style="text-align: center">
+    <h2>Typing anything with slowly</h2>
+    <textarea  id="textarea" onkeypress=pressed() rows="7" cols="40"></textarea>
+    <script>
+        let text = "You are stupid, poor you!"
+        let arrayText = text.split("");
+        console.log(arrayText);
+        let outArray = [];
+        function pressed(){
+            let txt = document.getElementById("textarea").value;
+            let leng = txt.length;
+            if(leng>0) {
+                for (i = 1; i <= leng; i++) {
+                    outArray[i-1] = arrayText[i-1];
+                    console.log(outArray);
+                    document.getElementById("textarea").value = outArray.join("");
+                    if (i == 25) {
+                        document.getElementById("textarea").value = "";
+                        outArray = [];
+                    }
+
+                }
+            }else {
+                document.getElementById("textarea").value = "";
+                outArray = [];
+            }
+        }
+        setTimeout(pressed(),1);
+
+    </script>
+</body>
+</html>
