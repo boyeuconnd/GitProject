@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<body>
+    <script>
+        var starName = ["Polaris","Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+        var constellation = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+        let inputText = prompt("Mời nhập tên ngôi sao");
+        let indexNum = -1;
+        checkName(inputText);
+        if(indexNum == -1){
+            document.write("Không có tìm thấy giá trị")
+        }else {
+            document.write(starName[indexNum]+" thuộc chòm sao " +constellation[indexNum]);
+        }
+
+        function checkName(inputName) {
+            for(i=0;i<starName.length;i++){
+                if(inputName == starName[i]){
+                    indexNum = i;
+                }
+            }
+
+        }
+
+    </script>
+</body>
+</html>

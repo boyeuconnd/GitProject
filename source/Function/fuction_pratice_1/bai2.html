@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+    <p onclick="add1point()">Mời click vào đây để xem điều gì xảy ra</p>
+    <script>
+        let a = Number(prompt("Mời nhập vào 1 số bất kì"));
+        let result;
+        function add1point() {
+
+            if (a !== ""){
+              result = (a++);
+              console.log(result);
+              alert(result);
+              return result
+            }
+
+
+
+        }
+
+    </script>
+</body>
+</html>
