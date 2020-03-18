@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>Feet - Meter converter</h2>
+    Feet<input type="number" id="foot" placeholder="Feet" onchange=feet2meter() oninput=feet2meter()> &nbsp;&nbsp;&nbsp;&nbsp;
+    Meter<input type="number" id="meter" placeholder="Meter" onchange=meter2feet() oninput=meter2feet()>
+    <script>
+        let result;
+        function feet2meter() {
+            let feet = document.getElementById("foot").value;
+            result=feet*0.305;
+            console.log(result);
+            document.getElementById("meter").value = result.toFixed(3);
+
+
+        }
+        function meter2feet() {
+            let meter = document.getElementById("meter").value;
+            result=meter*3.279;
+            document.getElementById("foot").value = result.toFixed(3);
+        }
+    </script>
+</body>
+</html>

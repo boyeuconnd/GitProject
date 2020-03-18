@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prime number check function</title>
+</head>
+<body>
+    <p>
+        <input type="number" id="inputNum"
+        oninput=outresult()
+        onchange=outresult()>
+    </p>
+        Result:<span id="result"></span>
+    <script>
+
+
+        function outresult(){
+            let numTest = document.getElementById("inputNum").value;
+            console.log(numTest);
+            console.log(primeNumCheck(numTest))
+            document.getElementById("result").innerHTML = primeNumCheck(numTest);
+        }
+        function primeNumCheck(num) {
+            if(num < 2)
+                return "false";
+            else if (num ==2)
+                return "true";
+            else
+                for (let i=2;i<num;i++){
+                    if (num%i == 0){
+                        return "false";
+                        break;
+                    }
+                }
+                return "true";
+
+        }
+    </script>
+</body>
+</html>
