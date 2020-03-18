@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2:</title>
+</head>
+<body>
+    <script>
+        let arrayLength = parseInt(prompt("Mời nhập chiều dài của mảng"));
+        var inputArray =[];
+        for(j=0;j<arrayLength;j++){
+            inputArray[j] = parseInt(prompt("Mời nhập vào phần tử thứ "+j));
+        }//Khởi tạo mảng với chiều dài và từng phần tử nhập vào
+        let outputSum = 0;
+        sumOddNum(inputArray);
+        console.log(outputSum);
+        document.write("Tổng các số lẻ của hàm đã nhập là "+outputSum);
+        function sumOddNum(arrayX) { //Hàm tính tổng các số lẻ với đối số mảng bất kì
+            for(i=0;i<arrayX.length;i++){
+                if(checkOddNum(arrayX[i])){
+                    outputSum += arrayX[i];
+                }
+            }
+        }
+        function checkOddNum(num) { //Hàm check số lẻ, trả về kết quả boolean
+            if(num%2 ==0) return false; return true;
+        }
+    </script>
+</body>
+</html>

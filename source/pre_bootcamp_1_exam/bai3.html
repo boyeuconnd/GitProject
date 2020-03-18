@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+    <script>
+        let inputYear = parseInt(prompt("Mời nhập năm sinh của bạn"))
+        if(caculateYearOld(inputYear)>120){
+            alert("Bạn nhập tuổi không đúng, bạn không thể thọ tới vậy");
+
+        }else if (caculateYearOld(inputYear)>=0){
+            alert("Tuổi hiện tại của bạn là "+caculateYearOld(inputYear));
+
+        }else {
+            alert('Số tuổi bạn nhập không phù hợp');
+        }
+        function caculateYearOld(YearofBirth) {
+            let now = new Date().getFullYear(); //Lấy năm hiện tại từ hệ thống gán vào biến now
+            if (YearofBirth>now){
+                return -1;
+            }else {
+                return now - YearofBirth;
+            }
+
+        }
+    </script>
+</body>
+</html>

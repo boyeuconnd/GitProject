@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+    <script>
+        let radiusIn = Number(prompt("Mời nhập bán kính đường tròn"));
+        document.write("Diện tích hình tròn với bán kính "+radiusIn+" là: "+acreage(radiusIn).toFixed(3)+"<br>");
+        document.write("Chu vi hình tròn với bán kính "+radiusIn+" là: "+perimeter(radiusIn).toFixed(3));
+        function acreage(radius) {
+            return Math.pow(radius,2)*Math.PI;
+        }
+        function perimeter(radius) {
+            return 2*radius*Math.PI;
+        }
+    </script>
+</body>
+</html>

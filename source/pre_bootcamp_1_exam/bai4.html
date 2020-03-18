@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+    <script>
+        let lengthArray = parseInt(prompt("Mời nhập chiều dài của ma trận vuông"));
+        var matrix= [];
+        matrix.length = lengthArray;
+        console.log(matrix);
+        for (i=0;i<lengthArray;i++){ //Khai báo mảng ma trận
+            matrix[i]=[];
+            for(j=0;j<lengthArray;j++){
+                matrix[i][j] = Number(prompt("Mời nhập phần tử hàng thứ "+i+" và cột thứ "+j));
+
+            }
+        }
+        let disMatrix="Ma trận";
+        displayMatrix(matrix);
+        function displayMatrix(Array) { //Hiển thị ma trận
+            for (let i = 0; i < Array.length; i++) {
+                disMatrix += "<br/>";
+                for (let j = 0; j < Array.length; j++) {
+                    disMatrix += Array[i][j] + ","+"&nbsp;&nbsp;";
+                }
+            }
+        }
+        document.write(disMatrix + "<br>");
+        function sumDiagonal(Array) { //Tính tổng phần tử thuộc đường chéo chính
+            let sumResult = 0;
+            for(i=0;i<Array.length;i++){
+                sumResult += Array[i][i];
+            }
+            return sumResult;
+        }
+        document.write("Tổng các phần tử đường chéo chính là: "+sumDiagonal(matrix));
+    </script>
+</body>
+</html>
