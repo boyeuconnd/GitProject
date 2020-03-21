@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 7</title>
+</head>
+<body>
+    <script>
+        let num1 = Number(prompt("Mời nhập số thứ 1"));
+        let num2 = Number(prompt("Mời nhập số thứ 2"));
+        revertPosition(num1,num2);
+        function revertPosition(num1,num2) {
+            let numX = num1;
+            num1 = num2;
+            num2 = numX;
+            document.write("Số thứ 1 là "+num1 + "<br>");
+            document.write("Số thứ 2 là "+num2);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6</title>
+</head>
+<body>
+    <script>
+        let inputNum = Number(prompt(" mời nhập giá trị số bất kì"));
+
+        document.write(checkSoNguyenDuong(inputNum));
+        function checkSoNguyenDuong(num) {
+            if(num/Math.floor(num) !== 1){
+                return "Số nhập vào là số thực";
+            }else {
+                if(num>=0){
+                    return true;
+                }else {
+                    return false;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
