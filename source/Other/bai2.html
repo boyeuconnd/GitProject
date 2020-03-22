@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+    <script>
+        let arrayLength = parseInt(prompt("Mời nhập chiều dài của mảng"));
+        var inputArray =[];
+        for(j=0;j<arrayLength;j++){
+            inputArray[j] = parseInt(prompt("Mời nhập vào phần tử thứ "+j));
+        }//Khởi tạo mảng với chiều dài và từng phần tử nhập vào
+        document.write("Tổng các số nguyên dương trong mảng là: " + sum_Array(inputArray));
+        function sum_Array(array) {
+            let result=0;
+            for(i=0;i<array.length;i++){
+                if(array[i]>0){
+                    result += array[i];
+                }
+            }
+            return result;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<body>
+    <script>
+        let arrayLength = parseInt(prompt("Mời nhập chiều dài của mảng"));
+        var inputArray =[];
+        for(j=0;j<arrayLength;j++){
+            inputArray[j] = parseInt(prompt("Mời nhập vào phần tử thứ "+j));
+        }//Khởi tạo mảng với chiều dài và từng phần tử nhập vào
+        let result = 0;
+        sum_in_Array(inputArray);
+        console.log(result);
+        document.write("Tổng các số nguyên tố của hàm đã nhập là "+result);
+        function sum_in_Array(arrayX) { //Hàm tính tổng các số nguyên tố với đối số mảng bất kì
+            for(i=0;i<arrayX.length;i++){
+                if(primeNumCheck(arrayX[i])){
+                    result += arrayX[i];
+                }
+            }
+        }
+        function primeNumCheck(num) {
+            if(num < 2)
+                return false;
+            else if (num ==2)
+                return true;
+            else
+                for (let i=2;i<num;i++){
+                    if (num%i == 0){
+                        return false;
+                    }
+                }
+            return true;
+
+        }
+    </script>
+</body>
+</html>
