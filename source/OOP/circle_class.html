@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Circle class</title>
+</head>
+<body>
+    <script>
+        let Circle = function (radius) {
+            this.bankinh = radius;
+            this.getRadius = function () {
+                return radius;
+            }
+            this.getArea = function () {
+                return Math.PI * Math.pow(radius,2);
+
+            }
+
+        }
+        let circle = new Circle(3);
+        alert("Radius: "+circle.getRadius()+"; Area: "+circle.getArea());
+    </script>
+</body>
+</html>
