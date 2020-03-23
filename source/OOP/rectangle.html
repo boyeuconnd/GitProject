@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rectangle</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="1200px" height="800" style="border: 1px solid darkblue; position: relative"></canvas>
+    <div id="result"></div>
+    <script>
+        let rectangle = function (length,wide) {
+            this.length = length;
+            this.wide = wide;
+            this.getArea = function () {
+                return this.length*this.wide;
+            }
+            this.getPeriMeter = function () {
+                return 2*(this.length+ this.wide);
+            }
+            this.drawRectangle =function () {
+                let ctx = document.getElementById("myCanvas").getContext("2d");
+                ctx.clearRect(0,0,1200,800)
+                var gradient = ctx.createLinearGradient(0, 0, 170, 0);
+                gradient.addColorStop("0", "magenta");
+                gradient.addColorStop("0.5" ,"blue");
+                gradient.addColorStop("1.0", "red");
+                ctx.strokeStyle = gradient;
+                ctx.lineWidth = 3;
+                ctx.strokeRect(10, 10,this.length,this.wide);
+
+
+            }
+            this.setLength = function (newLength) {
+                this.length = newLength;
+            }
+            this.setWide = function (newWide) {
+                this.wide = newWide;
+            }
+
+
+
+        }
+        function displayResult(rect) {
+            let peri = rect.getPeriMeter();
+            let area = rect.getArea();
+            document.getElementById("result").innerHTML = "area = "+area +" ; perimeter = "+peri;
+        }
+
+    </script>
+</body>
+</html>

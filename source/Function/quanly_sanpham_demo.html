@@ -16,25 +16,31 @@
     function addProduct() {
         let productName = document.getElementById("productName").value;
         productList.push(productName);
+        document.getElementById("productName").value ="";
         displayProducts();
     }
     function displayProducts() {
-        let tableContent = "";
+        let tableContent = "<table>";
         for (let i = 0; i < productList.length; i++) {
-            tableContent += getProductAt(i);
+            tableContent += "<tr>" +
+            "        <td id='product"+i+"'>" +  productList[i] +  "</td>" +
+            "        <td><button onclick='editProduct(" +i+ ")'>Edit</button></td>" +
+            "        <td><button onclick='deleteProductAt( " +i+ " )'>Delete</button></td>" +
+            "</tr>";
+
         }
+        tableContent+= "</table>";
         document.getElementById("productsTable").innerHTML = tableContent;
     }
-    function getProductAt(position) {
-        let productName = productList[position];
-        let productRow = "<tr>" +
-            "        <td>" +  productName +  "</td>" +
-            "        <td><button onclick='clickEditButtonAt(" + position  + ")'>Edit</button></td>" +
-            "        <td><button onclick='deleteProductAt( "  + position  +  " )'>Delete</button></td>" +
-            "</tr>";
-        return productRow;
+    function editProduct(position) {
+        let editString = "<input id='productName"+position+"' type='text' placeholder=" +productList[position]+ ">" +
+            "<button type='button' value='Save' onclick='saveNewName("+position+")'>Save</button>"
+        document.getElementById("product"+position+"").innerHTML =editString;
     }
-    function clickEditButtonAt(position) {
+    function saveNewName(position) {
+        let newName = document.getElementById("productName"+position+"").value;
+        productList[position] = newName;
+        displayProducts();
     }
     function deleteProductAt(position) {
         productList.splice(position, 1);
