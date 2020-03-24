@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mô tả lớp temperature</title>
+</head>
+<body>
+    <script>
+        let Temperature = function (celsius) {
+            this.celsius = celsius;
+            this.setCelsius  = function (num) {
+                return this.celsius = num;
+            }
+            this.convert_to_F = function () {
+                return this.celsius*1.8+32;
+            }
+            this.convert_to_K = function () {
+                return this.celsius+273.15;
+            }
+            this.display_convert = function () {
+                return alert("Fahrenheit: "+this.convert_to_F() +" ; Kelvin: "+this.convert_to_K());
+            }
+
+        }
+        let inputTemp = new Temperature(Number(prompt("Mời nhập giá trị Celsius")));
+        console.log(inputTemp.celsius);
+        if(inputTemp.celsius <-273) {
+             alert("Giá trị nhập vào không phù hợp");
+        }else{
+            inputTemp.display_convert();
+        }
+
+    </script>
+</body>
+</html>
