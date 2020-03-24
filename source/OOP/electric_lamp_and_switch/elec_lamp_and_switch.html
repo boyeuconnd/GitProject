@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mô tả hoạt động bóng đèn và công tắc</title>
+    <script src="lamp_and_switch.js"></script>
+</head>
+<body>
+    <script>
+        let switch1 = new SwitchButton();
+        let lamp1 = new ElectricLamp();
+        switch1.switchOn();
+        console.log(switch1.status);
+        switch1.connectLamp(lamp1);
+        console.log("Trạng thái kết nối:"+switch1.connectStatus);
+        for(i=0;i<5;i++){
+            switch1.switchOn();
+            console.log(lamp1.status);
+            switch1.switchOff();
+            console.log(lamp1.status);
+        }
+    </script>
+</body>
+</html>
