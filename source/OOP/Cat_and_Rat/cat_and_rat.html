@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mô phỏng mèo và chuột</title>
+    <script src="Rat.js"></script>
+    <script src="Cat.js"></script>
+</head>
+<body>
+    <script>
+        let cat1 =new Cat("Mèo mun",20,20);
+        let rat1 = new Rat("Chuột chù",5,18);
+        let rat2 = new Rat("Chuột nhắt",5,22);
+        cat1.sound(); //-->Meo Meo
+        rat1.sound(); //-->Chít chít
+        cat1.chasing(rat2); //--> không bắt được
+        cat1.chasing(rat1); //--> bắt được
+        cat1.eatRat(rat1); //cat.weight += rat1.weight
+
+    </script>
+</body>
+</html>
