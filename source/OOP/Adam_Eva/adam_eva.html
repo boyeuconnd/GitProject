@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="adam_eva.js"></script>
+</head>
+<body>
+<script>
+    let human1 = new Human("Adam",true,70);
+    let human2 = new Human("Eva",false,50);
+    let apple1 = new Apple();
+    let apple2 = new Apple();
+    let apple3 = new Apple();
+    human1.say(); //Hello, My name is Adam
+    human2.say(); //Hello, My name is Eva
+    human1.checkApple(apple1); //--> True
+    for(i=0;i<5;i++){ //apple1.weight down fr 10 to 0
+        human1.eat(apple1);
+        human2.eat(apple1);
+    }
+    human2.checkApple(apple1) //-->false
+    human2.eat(apple1); //--> aleart Apple was empty
+    human2.checkApple(apple2); // -->true
+    //and so on
+
+
+</script>
+</body>
+</html>
