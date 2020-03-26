@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mô phỏng remote tivi</title>
+    <style>
+        table{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        td{
+            padding: 3px;
+            width: 25px;
+        }
+        button{
+            width: 40px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <rowpan><button style="width: 135px" onclick="power()">Power</button></rowpan>
+        </tr>
+        <tr>
+            <td><button onclick="SetChannel(1)">1</button></td>
+            <td><button onclick="SetChannel(2)">2</button></td>
+            <td><button onclick="SetChannel(3)">3</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="SetChannel(4)">4</button></td>
+            <td><button onclick="SetChannel(5)">5</button></td>
+            <td><button onclick="SetChannel(6)">6</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="SetChannel(7)">7</button></td>
+            <td><button onclick="SetChannel(8)">8</button></td>
+            <td><button onclick="SetChannel(9)">9</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="VolumeUp()">Vol +</button></td>
+            <td><button onclick="VolumeDown()">Vol -</button></td>
+            <td><button style="height: 37px" onclick="GetChannel()">CN</button></td>
+        </tr>
+    </table>
+    <script>
+        let Television = function () {
+            this.channel;
+            this.volume;
+            this.status=false;
+
+            this.power = function () {
+                this.status =!this.status;
+                if(this.status){
+                    this.channel=0;
+                    this.volume=0;
+                    alert("TV is ON");
+                }else {
+                    this.status = undefined;
+                    this.volume = undefined;
+                    alert("TV is OFF");
+                }
+            }
+            this.getChanel =function () {
+                if(this.status ===true){
+                    return alert("TV channel: " +this.channel);
+                }else {alert("TV is OFF")};
+
+            }
+            this.setChanel = function (channel) {
+                if(this.status===true){
+                    this.channel=channel;
+                    alert("TV channel: " + channel);
+                }else {alert("TV is OFF")};
+
+            }
+            this.setVolume = function (boolean) {
+                if(this.status===true){
+                    switch (boolean) {
+                        case true:
+                            if(this.volume<10){
+                                this.volume++;
+                                alert(this.volume);
+                            }else {
+                                alert(this.volume);
+                            }
+                            break;
+                        case false:
+                            if(this.volume>0){
+                                this.volume--;
+                                alert(this.volume);
+                            }else {
+                                alert(this.volume);
+                            }
+                            break;
+                        default:
+                            alert("Giá trị không hợp lệ");
+                    };
+                }else {alert("TV is OFF")};
+
+            }
+        }
+        let Remote = function (television) {
+            this.powerRemote = function () {
+                return television.power();
+            }
+            this.getChanelRemote = function () {
+                return television.getChanel();
+            }
+            this.getVolumeRemote = function () {
+                return television.volume;
+            }
+            this.setChanelRemote =function (value) {
+                television.setChanel(value);
+            }
+            this.setVolumeRemote =function (value) {
+                switch (value) {
+                    case true:
+                        television.setVolume(true);
+                        break;
+                    case false:
+                        television.setVolume(false);
+                        break;
+                    default:
+                        alert("Giá trị không hợp lệ");
+                };
+            }
+        }
+        let SamsungTV = new Television();
+        let LG = new Television();
+        let samsungRemote = new Remote(SamsungTV);
+        function power() {
+            samsungRemote.powerRemote();
+        }
+        function VolumeUp() {
+            samsungRemote.setVolumeRemote(true);
+        }
+        function VolumeDown() {
+            samsungRemote.setVolumeRemote(false);
+        }
+        function SetChannel(value) {
+            samsungRemote.setChanelRemote(value);
+        }
+        function GetChannel() {
+            samsungRemote.getChanelRemote();
+        }
+
+    </script>
+</body>
+</html>
