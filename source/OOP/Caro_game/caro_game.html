@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Caro</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            background-color: skyblue;
+        }
+        tr{
+            border: 1px solid black;
+            height: 32px;
+        }
+        td{
+            text-align: center;
+            border: 1px solid black;
+            width: 32px;
+
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="game_caro"></div>
+<script>
+    let flag = true;
+    let checkArray = [];
+    let Caro_board = function (rows, cols) {
+        this.rows = rows;
+        this.cols = cols;
+        this.drawCaroField = function () {
+            board = '<table>';
+            for (let i = 0; i < this.cols; i++) {
+                board += '<tr>';
+                for (let j = 0; j < this.rows; j++) {
+                    board += '<td onclick="step_by_step(this)" id="'+i+','+j+'"></td>';
+                }
+                board += '</tr>';
+            }
+            board += '</table>';
+            document.getElementById("game_caro").innerHTML = board;
+        };
+    };
+
+    let myGame = new Caro_board(20,20);
+    myGame.drawCaroField();
+    createArray();
+    function step_by_step(cell) {
+        if(checkArray[i][j] !== ""){
+            if (flag) {
+                cell.innerHTML = "X";
+                flag = false
+            } else {
+                cell.innerHTML = "O";
+                flag = true;
+            };
+        }else {
+            alert("Cell is not empty");
+        };
+        console.log(cell.value);
+        console.log(cell);
+        // checkWin();
+    }
+    function createArray() {
+        for (i = 0; i < 20; i++) {
+            checkArray[i] = [];
+            for (j = 0; j < 20; j++) {
+                checkArray[i][j] = document.getElementById(i + ',' + j).innerHTML;
+            }
+        };
+    }
+</script>
+</body>
+</html>
