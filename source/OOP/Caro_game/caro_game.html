@@ -18,12 +18,16 @@
             width: 32px;
 
         }
-
+        p{
+            position: static;
+        }
     </style>
 </head>
 <body>
 
 <div id="game_caro"></div>
+<p id="result"></p>
+<button id="replay" onclick="gameOver()">NEW MATCH</button>
 <script>
     let flag = true;
     let checkArray = [];
@@ -46,30 +50,97 @@
 
     let myGame = new Caro_board(20,20);
     myGame.drawCaroField();
-    createArray();
+
     function step_by_step(cell) {
-        if(checkArray[i][j] !== ""){
+        if(cell.innerHTML ==""){
             if (flag) {
                 cell.innerHTML = "X";
-                flag = false
+                createArray();
+                checkWinCondition(checkArray,"X");
+                flag = false;
             } else {
                 cell.innerHTML = "O";
+                createArray();
+                checkWinCondition(checkArray,"Y");
                 flag = true;
             };
-        }else {
-            alert("Cell is not empty");
-        };
-        console.log(cell.value);
+        }else {alert("Cell is not empty")};
         console.log(cell);
-        // checkWin();
     }
     function createArray() {
         for (i = 0; i < 20; i++) {
             checkArray[i] = [];
             for (j = 0; j < 20; j++) {
                 checkArray[i][j] = document.getElementById(i + ',' + j).innerHTML;
-            }
+            };
         };
+    }
+    function checkWinCondition(array,player) {
+        for(i=0;i<array.length;i++){ //Check theo chiều ngang
+            for (j=0;j<array.length-5;j++){
+                if((array[i][j]==player)&&
+                    (array[i][j+1]==player)&&
+                    (array[i][j+2]==player)&&
+                    (array[i][j+3]==player)&&
+                    (array[i][j+4]===player)){
+                    if(player === "X"){
+                        document.getElementById("result").innerHTML = "PLAYER X WON";
+                    }else {
+                        document.getElementById("result").innerHTML = "PLAYER Y WON";
+                    };
+                };
+            };
+        };
+        for(i=0;i<array.length-5;i++){ //Check theo chiều dọc
+            for (j=0;j<array.length;j++){
+                if((array[i][j]==player)&&
+                    (array[i+1][j]==player)&&
+                    (array[i+2][j]==player)&&
+                    (array[i+3][j]==player)&&
+                    (array[i+4][j]===player)){
+                    if(player === "X"){
+                        document.getElementById("result").innerHTML = "PLAYER X WON";
+                    }else {
+                        document.getElementById("result").innerHTML = "PLAYER Y WON";
+                    };
+                };
+            };
+        };
+        for(i=0;i<array.length-5;i++){ //Check theo chiều chéo xuống
+            for (j=0;j<array.length-5;j++){
+                if((array[i][j]==player)&&
+                    (array[i+1][j+1]==player)&&
+                    (array[i+2][j+2]==player)&&
+                    (array[i+3][j+3]==player)&&
+                    (array[i+4][j+4]==player)){
+                    if(player === "X"){
+                        document.getElementById("result").innerHTML = "PLAYER X WON";
+                    }else {
+                        document.getElementById("result").innerHTML = "PLAYER Y WON";
+                    };
+                };
+            };
+        };
+        for(i=4;i<array.length;i++){ //Check theo chiều chéo xuống
+            for (j=0;j<array.length-5;j++){
+                if((array[i][j]==player)&&
+                    (array[i-1][j+1]==player)&&
+                    (array[i-2][j+2]==player)&&
+                    (array[i-3][j+3]==player)&&
+                    (array[i-4][j+4]==player)){
+                    if(player === "X"){
+                        document.getElementById("result").innerHTML = "PLAYER X WON";
+                    }else {
+                        document.getElementById("result").innerHTML = "PLAYER Y WON";
+                    };
+                };
+            };
+        };
+    }
+    function gameOver() {
+        checkArray = [];
+        myGame.drawCaroField();
+        document.getElementById("result").innerText ="";
     }
 </script>
 </body>
