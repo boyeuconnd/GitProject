@@ -61,7 +61,7 @@
             } else {
                 cell.innerHTML = "O";
                 createArray();
-                checkWinCondition(checkArray,"Y");
+                checkWinCondition(checkArray,"O");
                 flag = true;
             };
         }else {alert("Cell is not empty")};
@@ -85,8 +85,8 @@
                     (array[i][j+4]===player)){
                     if(player === "X"){
                         document.getElementById("result").innerHTML = "PLAYER X WON";
-                    }else {
-                        document.getElementById("result").innerHTML = "PLAYER Y WON";
+                    }else if(player ==="O") {
+                        document.getElementById("result").innerHTML = "PLAYER O WON";
                     };
                 };
             };
@@ -100,8 +100,8 @@
                     (array[i+4][j]===player)){
                     if(player === "X"){
                         document.getElementById("result").innerHTML = "PLAYER X WON";
-                    }else {
-                        document.getElementById("result").innerHTML = "PLAYER Y WON";
+                    }else if(player ==="O") {
+                        document.getElementById("result").innerHTML = "PLAYER O WON";
                     };
                 };
             };
@@ -115,8 +115,8 @@
                     (array[i+4][j+4]==player)){
                     if(player === "X"){
                         document.getElementById("result").innerHTML = "PLAYER X WON";
-                    }else {
-                        document.getElementById("result").innerHTML = "PLAYER Y WON";
+                    }else if(player ==="O") {
+                        document.getElementById("result").innerHTML = "PLAYER O WON";
                     };
                 };
             };
@@ -130,8 +130,8 @@
                     (array[i-4][j+4]==player)){
                     if(player === "X"){
                         document.getElementById("result").innerHTML = "PLAYER X WON";
-                    }else {
-                        document.getElementById("result").innerHTML = "PLAYER Y WON";
+                    }else if(player ==="O") {
+                        document.getElementById("result").innerHTML = "PLAYER O WON";
                     };
                 };
             };
