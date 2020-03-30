@@ -3,84 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Mô phỏng game lái xe</title>
+    <script src="Class_Init.js"></script>
 
 </head>
 <body onkeydown="keyPressHandler(event)" onkeyup="keyUp(event)">
 <canvas id="myCanvas" height="600" width="1500" style="background-color: lightskyblue"></canvas>
-<br><button id = btn onclick="gameStart()">Start Game</button>
-<br>
-<script>
-    let Class_Init = function (x,y,height,width) {
-        this.x=x;
-        this.y=y;
-        this.height=height;
-        this.width=width;
-        this.speed =10;
-        this.speedBoost = function () {
-            return this.speed = 20;
-        }
-        this.getDrawX =function () {
-            return this.x - (this.width/2);
-        }
-        this.getDrawY =function () {
-            return this.y - (this.height/2);
-        }
-        this.moveUp = function () {
-            this.y -=this.speed;
-        }
-        this.moveDown = function () {
-            this.y +=this.speed;
-        }
-        this.moveLeft = function () {
-            this.x -=this.speed;
-        }
-        this.moveRight = function () {
-            this.x +=this.speed;
-        }
-        this.draw = function (direct) {
-            switch (direct) {
-                case "Up":
-                    this.height = carImgUp.height;
-                    this.width = carImgUp.width;
-                    ctx.drawImage(carImgUp,this.getDrawX(),this.getDrawY());
-                    break;
-                case "Down":
-                    this.height = carImgDown.height;
-                    this.width = carImgDown.width;
-                    ctx.drawImage(carImgDown,this.getDrawX(),this.getDrawY());
-                    break;
-                case "Left":
-                    this.height = carImgLeft.height;
-                    this.width = carImgLeft.width;
-                    ctx.drawImage(carImgLeft,this.getDrawX(),this.getDrawY());
-                    break;
-                case "Right":
-                    this.height = carImgRight.height;
-                    this.width = carImgRight.width;
-                    ctx.drawImage(carImgRight,this.getDrawX(),this.getDrawY());
-                    break;
-            };
+<br><button id = btn onclick="gameStart()" >
+    <img id="img" height="50px" src="play.png" alt="Trình duyệt không load được ảnh">
+</button>
+<button >
+    <img  height="50px" src="reset.png" alt="Trình duyệt không load được ảnh">
+</button>
+<button onclick="bgmusic.play_pause()">
+    <img src="music.png" height="50px" alt="Trình duyệt không load được ảnh">
+</button>
+<button >
+    <img  height="50px" src="audio.png" alt="Trình duyệt không load được ảnh">
+</button>
+<div id="mydiv"></div>
 
-        }
-    };
-    let Object = function (x,y,type) {
-        this.x=x;
-        this.y=y;
-        this.type=type;
-        this.getCenterX =function () {
-            return this.x + 25;
-        }
-        this.getCenterY =function () {
-            return this.y + 25;
-        }
-        this.draw = function () {
-            if(this.type == true){
-                ctx.drawImage(coinImg,this.x,this.y);
-            }else {
-                ctx.drawImage(rockImg,this.x,this.y);
-            };
-        }
-    }
+<script>
+    var bgmusic = new Sound("bgmusic.mp3",false);
+    bgmusic.setMusic();
+
     function keyPressHandler(event) {
         const KEY_LEFT = 37;
         const KEY_RIGHT = 39;
@@ -104,12 +49,12 @@
                 speedBoost();
                 break;
         }
-    }
+    };
     function keyUp(event){
         if(event.keyCode === 17){
             myCar.speed = 10;
         }
-    }
+    };
 
     let canvas = document.getElementById("myCanvas");
     let ctx = canvas.getContext("2d");
@@ -127,7 +72,7 @@
     coinImg.src="coin.png";
     const InitX = canvas.clientWidth/2;
     const InitY = canvas.clientHeight -100;
-    var myCar = new Car(InitX,InitY,);
+    var myCar = new Class_Init(InitX,InitY,);
     let score;
     let objects = [];
     function createObjects() {
@@ -139,7 +84,7 @@
                     objects.push(new Object(x,y,true));
                 }else {
                     objects.push(new Object(x,y,false));
-                };
+                }
                 i++;
             }
         }
@@ -157,7 +102,7 @@
     }
     function move(direct) { //Tái tạo chuyển động của vật thể
         ctx.clearRect(0,0,canvas.clientWidth,canvas.clientHeight);
-        showScore()
+        showScore();
         drawObjects();
         switch (direct) {
             case "Up":
@@ -167,7 +112,7 @@
                     checkColision("Y");
                 }else{
                     myCar.draw("Up");
-                };
+                }
                 break;
             case "Down":
                 if(myCar.y<600){ //Giới hạn vật thể di chuyển chiều dưới
@@ -176,7 +121,7 @@
                     checkColision("Y");
                 }else {
                     myCar.draw("Down");
-                };
+                }
                 break;
             case "Left":
                 if(myCar.x>0){
@@ -185,7 +130,7 @@
                     checkColision("X");
                 }else {
                     myCar.draw("Left");
-                };
+                }
                 break;
             case "Right":
                 if(myCar.x<1500){
@@ -194,7 +139,7 @@
                     checkColision("X");
                 }else {
                     myCar.draw("Right");
-                };
+                }
                 break;
         };
 
@@ -250,6 +195,7 @@
     }
     let interval;
     function gameStart() {
+        objects.respawn = 3000;
         score = 0;
         showScore();
         myCar.draw("Up");
@@ -258,7 +204,7 @@
             createObjects();
             deleteObjects();
             drawObjects();
-            },3000
+            },objects.respawn
         );
 
     }
