@@ -3,27 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Mô phỏng game lái xe</title>
-    <script src="Class_Init.js"></script>
+    <script src="Class_init.js"></script>
+    <style>
+        button{
+            border: 1px solid green;
+            background-color: white;
+        }
+        canvas{
+            background-image: url("img/background.jpg");
+        }
+    </style>
 
 </head>
 <body onkeydown="keyPressHandler(event)" onkeyup="keyUp(event)">
-<canvas id="myCanvas" height="600" width="1500" style="background-color: lightskyblue"></canvas>
-<br><button id = btn onclick="gameStart()" >
-    <img id="img" height="50px" src="play.png" alt="Trình duyệt không load được ảnh">
+<canvas id="myCanvas" height="600" width="1500" ></canvas>
+<br><button id = btn onclick="gameStart()" title="PLAY GAME">
+    <img id="img" height="50px" src="img/play.png" alt="Start">
 </button>
-<button >
-    <img  height="50px" src="reset.png" alt="Trình duyệt không load được ảnh">
+<button title="RESET GAME" onclick="resetGame()" >
+    <img  height="50px" src="img/reset.png" alt="Reset">
 </button>
-<button onclick="bgmusic.play_pause()">
-    <img src="music.png" height="50px" alt="Trình duyệt không load được ảnh">
+<button onclick="bgmusic.play_pause()" title="BACKGROUND MUSIC">
+    <img src="img/music.png" height="50px" alt="Music">
 </button>
-<button >
-    <img  height="50px" src="audio.png" alt="Trình duyệt không load được ảnh">
+<button title="GAME SOUND" >
+    <img  height="50px" src="img/audio.png" alt="Sound">
+</button>
+<button title="SHOW TUTORIAL" onclick="showTutorial()">
+    <img  height="50px" src="img/tutorial.png" alt="Tutorial">
 </button>
 <div id="mydiv"></div>
+<div id="mygamesound"></div>
 
 <script>
-    var bgmusic = new Sound("bgmusic.mp3",false);
+    var bgmusic = new Sound("sound/bgmusic.mp3",true,"mydiv");
+    var start_sound = new Sound("sound/car_start.mp3",false,"mygamesound");
+    var get_point = new Sound("sound/get_point.mp3",false,"mygamesound");
+    var crash = new Sound("sound/crash.mp3",false,"mygamesound");
     bgmusic.setMusic();
 
     function keyPressHandler(event) {
@@ -59,20 +75,20 @@
     let canvas = document.getElementById("myCanvas");
     let ctx = canvas.getContext("2d");
     var carImgUp = new Image();
-    carImgUp.src = "carUp.png";
+    carImgUp.src = "img/carUp.png";
     var carImgDown = new Image();
-    carImgDown.src = "carDown.png";
+    carImgDown.src = "img/carDown.png";
     var carImgLeft = new Image();
-    carImgLeft.src = "carLeft.png";
+    carImgLeft.src = "img/carLeft.png";
     var carImgRight = new Image();
-    carImgRight.src = "carRight.png";
+    carImgRight.src = "img/carRight.png";
     var rockImg = new Image();
-    rockImg.src="rock.png";
+    rockImg.src="img/rock.png";
     var coinImg = new Image();
-    coinImg.src="coin.png";
+    coinImg.src="img/coin.png";
     const InitX = canvas.clientWidth/2;
     const InitY = canvas.clientHeight -100;
-    var myCar = new Class_Init(InitX,InitY,);
+    var myCar = new MainCar(InitX,InitY,);
     let score;
     let objects = [];
     function createObjects() {
@@ -101,7 +117,7 @@
         }
     }
     function move(direct) { //Tái tạo chuyển động của vật thể
-        ctx.clearRect(0,0,canvas.clientWidth,canvas.clientHeight);
+        clearCanvas();
         showScore();
         drawObjects();
         switch (direct) {
@@ -141,7 +157,7 @@
                     myCar.draw("Right");
                 }
                 break;
-        };
+        }
 
     }
     function speedBoost() { //Function boost speed của xe
@@ -166,10 +182,12 @@
                         if(checkX<125){
                             if(objects[i].type === true){
                                 score++;
+                                get_point.play_sound();
                                 objects.splice(i,1);
                                 drawObjects();
                                 showScore();
                             }else {
+                                crash.play_sound();
                                 gameOver();
                             }
                         };
@@ -180,10 +198,12 @@
                         if(checkY<125){
                             if(objects[i].type === true){
                                 score++;
+                                get_point.play_sound();
                                 objects.splice(i,1);
                                 drawObjects();
                                 showScore();
                             }else {
+                                crash.play_sound();
                                 gameOver();
                             }
                         };
@@ -198,23 +218,43 @@
         objects.respawn = 3000;
         score = 0;
         showScore();
+        start_sound.play_sound();
         myCar.draw("Up");
         interval = setInterval(
             function (){
-            createObjects();
-            deleteObjects();
-            drawObjects();
+                createObjects();
+                deleteObjects();
+                drawObjects();
             },objects.respawn
         );
 
     }
     function gameOver() {
-        ctx.clearRect(0,0,canvas.clientWidth,canvas.clientHeight);
+        clearCanvas();
         ctx.font = "60px Arial";
         ctx.fillText("GAME OVER",10,70);
         ctx.font = "30px Arial";
         ctx.fillText("YOUR SCORE: "+score,20,150);
         clearInterval(interval);
+    }
+    function resetGame() {
+        clearCanvas();
+        objects.respawn = 3000;
+        score = 0;
+        showScore();
+        objects=[];
+        myCar.x = InitX;
+        myCar.y = InitY;
+        clearInterval(interval);
+    }
+
+    function clearCanvas() {
+        ctx.clearRect(0,0,canvas.clientWidth,canvas.clientHeight);
+    }
+    function showTutorial() {
+        var ruleGame = "Luật chơi:\n\Tránh tất cả đá ở trên đường và thu nhặt những đồng tiền vàng để tăng điểm"
+        var tutorialText = "-Nhấn play để bắt đầu chơi.\n\ -Nhấn reset để chơi lại.\n\ -Giữ Control để tăng tốc độ.\n\ -Tùy chọn bật tắt sound và background music.";
+        alert(ruleGame+"\n\ "+ tutorialText);
     }
 
 

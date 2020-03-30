@@ -1,4 +1,4 @@
-let Class_Init = function (x, y, height, width) {
+let MainCar = function (x, y, height, width) {
     this.x=x;
     this.y=y;
     this.height=height;
@@ -51,11 +51,11 @@ let Class_Init = function (x, y, height, width) {
 
     }
 };
-let Object = function (x,y,type,respawn) {
+let Object = function (x,y,type) {
     this.x=x;
     this.y=y;
     this.type=type;
-    this.respawn = respawn;
+    this.respawn;
     this.getCenterX =function () {
         return this.x + 25;
     }
@@ -70,9 +70,10 @@ let Object = function (x,y,type,respawn) {
         }
     }
 };
-let Sound = function (src,status) {
+let Sound = function (src,status,element) {
     this.src = src;
     this.status = status;
+    this.element = element;
     this.play_pause = function () {
         var music = document.getElementById(this.src);
         if(this.status){
@@ -84,15 +85,18 @@ let Sound = function (src,status) {
         }
 
     };
+    this.play_sound = function () {
+        this.setMusic();
+        document.getElementById(this.src).play();
+    };
     this.setMusic = function () {
         let audioTab;
         if(this.status ===true){
-            audioTab = '<audio id="'+this.src+'"src=" '+this.src +' "loop autoplay></audio>';
-
+            audioTab = '<audio id="'+this.src+'"src="'+this.src+'" loop  autoplay></audio>';
         }else {
-            audioTab = '<audio id="'+this.src+'"src=" '+this.src +' "loop></audio>';
-        };
-        document.getElementById("mydiv").innerHTML = audioTab;
+            audioTab = '<audio id="'+this.src+'"src=" '+this.src +'"></audio>';
+        }
+        document.getElementById(this.element).innerHTML = audioTab;
 
     }
 };
