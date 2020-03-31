@@ -55,13 +55,12 @@ let Object = function (x,y,type) {
     this.x=x;
     this.y=y;
     this.type=type;
-    this.respawn;
     this.getCenterX =function () {
         return this.x + 25;
-    }
+    };
     this.getCenterY =function () {
         return this.y + 25;
-    }
+    };
     this.draw = function () {
         if(this.type == true){
             ctx.drawImage(coinImg,this.x,this.y);
@@ -70,10 +69,11 @@ let Object = function (x,y,type) {
         }
     }
 };
-let Sound = function (src,status,element) {
+let Sound = function (src,status,element,mute) {
     this.src = src;
     this.status = status;
     this.element = element;
+    this.mute = mute;
     this.play_pause = function () {
         var music = document.getElementById(this.src);
         if(this.status){
@@ -85,10 +85,6 @@ let Sound = function (src,status,element) {
         }
 
     };
-    this.play_sound = function () {
-        this.setMusic();
-        document.getElementById(this.src).play();
-    };
     this.setMusic = function () {
         let audioTab;
         if(this.status ===true){
@@ -98,5 +94,14 @@ let Sound = function (src,status,element) {
         }
         document.getElementById(this.element).innerHTML = audioTab;
 
-    }
+    };
+    this.setMute =
+    this.play_sound = function () {
+        if(this.mute){
+        }else {
+            this.setMusic();
+            document.getElementById(this.src).play();
+        }
+
+    };
 };
