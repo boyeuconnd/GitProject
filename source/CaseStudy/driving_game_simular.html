@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Mô phỏng game lái xe</title>
     <script src="Class_init.js"></script>
-<!--    <script src="function.js"></script>-->
     <style>
         button{
             border: 1px solid green;
@@ -18,27 +17,27 @@
 
 </head>
 <body onkeydown="keyPressHandler(event)" onkeyup="keyUp(event)">
-<canvas id="myCanvas" height="600" width="1500" ></canvas>
-<br><button id = btn onclick="gameStart()" title="PLAY GAME">
-    <img id="img" height="50px" src="img/play.png" alt="Start">
-</button>
-<button title="RESET GAME" onclick="resetGame()" >
-    <img  height="50px" src="img/reset.png" alt="Reset">
-</button>
-<button onclick="bg_music.play_pause()" title="BACKGROUND MUSIC">
-    <img src="img/music.png" height="50px" alt="Music">
-</button>
-<button title="GAME SOUND" >
-    <img  height="50px" src="img/audio.png" alt="Sound">
-</button>
-<button title="SHOW TUTORIAL" onclick="showTutorial()">
-    <img  height="50px" src="img/tutorial.png" alt="Tutorial">
-</button>
-<div id="my_bg_music"></div>
-<div id="mygamesound"></div>
-<script src="function.js"></script>
+    <canvas id="myCanvas" height="600" width="1500" ></canvas><br>
+    <button id = btn onclick="gameStart()" title="PLAY GAME">
+        <img id="img" height="50px" src="img/play.png" alt="Start">
+    </button>
+    <button title="RESET GAME" onclick="resetGame()" >
+        <img height="50px" src="img/reset.png" alt="Reset"/>
+    </button>
+    <button onclick="bg_music.play_pause()" title="BACKGROUND MUSIC">
+        <img height="50px" src="img/music.png" alt="Music"/>
+    </button>
+    <button title="GAME SOUND" id="game_sound" onclick="muteGameSound()">
+        <img height="50px" src="img/audio.png" alt="Sound"/>
+    </button>
+    <button title="SHOW TUTORIAL" onclick="showTutorial()"/>
+        <img height="50px" src="img/tutorial.png" alt="Tutorial">
+    </button>
+    <div id="my_bg_music"></div>
+    <div id="mygamesound"></div>
+    <script src="function.js"></script>
 
-<script>
+    <script>
     // let bg_music = new Sound("sound/bgmusic.mp3",true,"my_bg_music");
     // let start_sound = new Sound("sound/car_start.mp3",false,"mygamesound");
     // let get_point = new Sound("sound/get_point.mp3",false,"mygamesound");

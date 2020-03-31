@@ -3,9 +3,14 @@ let MainCar = function (x, y, height, width) {
     this.y=y;
     this.height=height;
     this.width=width;
-    this.speed =10;
+    this.speed = 8;
+    this.speed_boost = 2*this.speed;
+    this.set_speed = function (value) {
+        this.speed += value;
+        this.speed_boost = 2*this.speed;
+    };
     this.speedBoost = function () {
-        return this.speed = 20;
+        return this.speed = this.speed_boost;
     };
     this.getDrawX =function () {
         return this.x - (this.width/2);
@@ -48,6 +53,19 @@ let MainCar = function (x, y, height, width) {
                 ctx.drawImage(carImgRight,this.getDrawX(),this.getDrawY());
                 break;
         }
+
+    }
+};
+let Lever = function(lever,speed_adj,re_spawn,amountObj){
+    this.lever = lever;
+    this.speed_adj = speed_adj;
+    this.re_spawn = re_spawn;
+    this.amountObj = amountObj;
+    this.leverUp = function () {
+        this.lever++;
+        myCar.set_speed(this.speed_adj);
+        this.re_spawn -= 0.3;
+        this.amountObj++;
 
     }
 };
@@ -95,7 +113,9 @@ let Sound = function (src,status,element,mute) {
         document.getElementById(this.element).innerHTML = audioTab;
 
     };
-    this.setMute =
+    this.setMute = function () {
+        this.mute = !this.mute;
+    };
     this.play_sound = function () {
         if(this.mute){
         }else {

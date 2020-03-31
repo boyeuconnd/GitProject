@@ -1,7 +1,7 @@
 let bg_music = new Sound("sound/bgmusic.mp3",true,"my_bg_music");
-let start_sound = new Sound("sound/car_start.mp3",false,"mygamesound");
-let get_point = new Sound("sound/get_point.mp3",false,"mygamesound");
-let crash = new Sound("sound/crash.mp3",false,"mygamesound");
+let start_sound = new Sound("sound/car_start.mp3",false,"mygamesound",false);
+let get_point = new Sound("sound/get_point.mp3",false,"mygamesound",false);
+let crash = new Sound("sound/crash.mp3",false,"mygamesound",false);
 bg_music.setMusic();
 
 //==============Khai báo hàm sự kiện bàn phím==================
@@ -31,10 +31,13 @@ function keyPressHandler(event) {
 }
 function keyUp(event){
     if(event.keyCode === 17){
-        myCar.speed = 10;
+        myCar.speed = myCar.speed_boost/2;
     }
 }
-
+function speedBoost() { //Function boost speed của xe
+    myCar.speedBoost();
+}
+//==================Khai báo thẻ canvas====================
 let canvas = document.getElementById("myCanvas");
 let ctx = canvas.getContext("2d");
 //==================Khai báo Img của myCar=================
@@ -51,11 +54,14 @@ let rockImg = new Image();
 rockImg.src="img/rock.png";
 let coinImg = new Image();
 coinImg.src="img/coin.png";
+//=================Khai báo vị trí khởi tạo của myCar===========
 const InitX = canvas.clientWidth/2;
 const InitY = canvas.clientHeight -100;
 let myCar = new MainCar(InitX,InitY,);
+//==================Khai báo biến điểm, mảng object, lever==========
 let score;
 let objects = [];
+let lever = new Lever(1,2,5,4);
 //==================Khai báo hàm quy định việc tạo Object============
 function createObjects() {
     for (let i=0;i<1;){
@@ -73,7 +79,7 @@ function createObjects() {
 }
 //=================Hàm giới hạn số lượng Objects tối đa tại 1 thời điểm===========
 function deleteObjects() {
-    if(objects.length>8){
+    if(objects.length>lever.amountObj){
         objects.shift();
     }
 }
@@ -127,9 +133,7 @@ function move(direct) { //Tái tạo chuyển động của vật thể
         }
     }
 }
-function speedBoost() { //Function boost speed của xe
-    myCar.speedBoost();
-}
+
 function showScore() { //function show điểm
     ctx.font = "20px Verdana";
     var gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
@@ -147,7 +151,7 @@ function checkColision(direction) { //Kiểm tra chạm vào vật thể
         switch (direction) {
             case "X":
                 if(checkY<75){
-                    if(checkX<125){
+                    if(checkX<123){
                         if(objects[i].type){
                             score++;
                             get_point.play_sound();
@@ -163,7 +167,7 @@ function checkColision(direction) { //Kiểm tra chạm vào vật thể
                 break;
             case "Y":
                 if(checkX<75){
-                    if(checkY<125){
+                    if(checkY<123){
                         if(objects[i].type){
                             score++;
                             get_point.play_sound();
@@ -184,7 +188,7 @@ function checkColision(direction) { //Kiểm tra chạm vào vật thể
 let interval;
 function gameStart() {
     if(objects.length<1){//Set điều kiện để khi game đã bắt đầu, vô hiệu hóa nút start,
-        objects.respawn = 3000;
+        objects.respawn = Math.floor(lever.re_spawn*1000);
         score = 0;
         showScore();
         start_sound.play_sound();
@@ -216,6 +220,17 @@ function resetGame() {
     myCar.x = InitX;
     myCar.y = InitY;
     clearInterval(interval);
+}
+//==============Hàm mute game sound================================
+function muteGameSound() {
+    start_sound.setMute();
+    get_point.setMute();
+    crash.setMute();
+    if(get_point.mute){
+        document.getElementById("game_sound").innerHTML = '<img height="50px" src="img/audio_no.png" alt="Sound">';
+    }else {
+        document.getElementById("game_sound").innerHTML = '<img height="50px" src="img/audio.png" alt="Sound">';
+    }
 }
 
 function clearCanvas() {
