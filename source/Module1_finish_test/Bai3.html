@@ -6,7 +6,28 @@
 </head>
 <body>
     <script>
+        let inputX = prompt("Nhập số");
+        let fibonancyArray = [0,1];
+        function createArray(value) {
+            for(i=2;;i++){
+                fibonancyArray[i]=fibonancyArray[i-1]+fibonancyArray[i-2];
+                if(fibonancyArray[i]>=value){
+                    break;
+                }
 
+            }
+        }
+        function isFibonancy(inputNum) {
+            createArray(inputNum);
+            for(i=0;i<fibonancyArray.length;i++){
+                if(fibonancyArray[i] == inputNum){
+                    return true;
+                }
+            }
+            return false;
+        }
+        let result = isFibonancy(inputX);
+        document.write(result);
     </script>
 </body>
 </html>
