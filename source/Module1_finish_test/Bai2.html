@@ -6,8 +6,9 @@
 </head>
 <body>
     <script>
+        let ar = [0,1,2,3,4,3,5,6,3,7];
+        tryRemoteFromArray(ar,3);
         function tryRemoteFromArray(InputArray,X) {
-            X = parseInt(prompt("Mời nhập giá trị số nguyên"));
             for(i=0;i<InputArray.length;i++){
                 if(X === InputArray[i]){
                     InputArray.splice(i,1);
