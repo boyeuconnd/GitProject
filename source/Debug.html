@@ -6,14 +6,14 @@
 </head>
 <body>
 <script>
-    let variale = 3000;
-    let interval;
-    interval = setInterval(function (){
-            document.write("abc"+"<br>")
-    },variale);
-    function setting() {
-        variale = 1000;
+    var a = [1, 3, 5, 7, 2, 4, 8];
+    var i;
+    var expectedValue = 0;
+    for(i = 0; i < 7; i++){
+        expectedValue += a[i];
     }
+    expectedValue /= 7;
+    document.write("Expected value: " + expectedValue);
 </script>
 </body>
 </html>

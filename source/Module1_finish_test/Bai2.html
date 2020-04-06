@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 2</title>
+</head>
+<body>
+    <script>
+        function tryRemoteFromArray(InputArray,X) {
+            X = parseInt(prompt("Mời nhập giá trị số nguyên"));
+            for(i=0;i<InputArray.length;i++){
+                if(X === InputArray[i]){
+                    InputArray.splice(i,1);
+                }
+            }
+            return InputArray;
+        }
+    </script>
+</body>
+</html>
